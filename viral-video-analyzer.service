@@ -1,0 +1,17 @@
+[Unit]
+Description=Viral Video Analyzer Backend
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/project/viral-video-analyzer/backend
+Environment=DEEPSEEK_API_KEY=2Jpl02Nt7DiPRVXUnNj9I1FvhmkhHAoAXJsCxmnMTwizezuJ
+Environment=DEEPSEEK_BASE_URL=https://apiproxy.paigod.work/v1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 -m uvicorn main:app --host 127.0.0.1 --port 8002
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
